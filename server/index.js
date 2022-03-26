@@ -14,7 +14,7 @@ app.get('/movies', (req, res) => {
 });
 
 app.post('/movies', (req, res) => {
-  database.insertMovies();
+  database.insertMovies(req.body.title);
   res.send();
 });
 

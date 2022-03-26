@@ -18,7 +18,6 @@ class MovieList extends React.Component {
   fetch () {
     axios.get('/movies')
       .then((results) => {
-        console.log(results);
         this.setState({
           movies: results.data
         });

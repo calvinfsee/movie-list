@@ -16,15 +16,14 @@ var findMovies = function (callback) {
         console.error(err);
         return;
       }
-      console.log(results);
       callback(results);
     }
   );
 }
 
-var insertMovies = function () {
+var insertMovies = function (newMovie) {
   connection.query(
-    `INSERT INTO mymovies(title) VALUES('ABB')`, (err, results) => {
+    `INSERT INTO mymovies(title) VALUES(?)`, [newMovie], (err, results) => {
       if (err) {
         console.error(err);
       }
