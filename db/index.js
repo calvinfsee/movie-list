@@ -9,9 +9,9 @@ const connection = mysql.createConnection({
 
 connection.connect();
 
-var findMovies = function (callback) {
+var findMovies = function (callback, query) {
   connection.query(
-    `SELECT * FROM mymovies`, (err, results) => {
+    `SELECT * FROM mymovies WHERE title LIKE '${query}%'`, (err, results) => {
       if (err) {
         console.error(err);
         return;

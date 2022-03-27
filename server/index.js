@@ -7,10 +7,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('client/dist'));
 
-app.get('/movies', (req, res) => {
+app.post('/search', (req, res) => {
   database.findMovies((movieList) => {
     res.json(movieList);
-  });
+  }, req.body.query);
 });
 
 app.post('/movies', (req, res) => {

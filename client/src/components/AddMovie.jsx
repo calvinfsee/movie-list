@@ -14,6 +14,10 @@ class AddMovie extends React.Component {
     axios.post('/movies', {title: this.state.title})
       .then((result) => {
         console.log('added: ', this.state.title);
+        this.props.update();
+        this.setState({
+          title: ""
+        });
       })
       .catch((err) => {
         console.error(err);
